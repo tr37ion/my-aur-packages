@@ -1,0 +1,26 @@
+# UNOFFICIAL PKGBUILD
+# Installing Brother HL-2035 LPRng driver by using the HL-2030 driver instead
+
+pkgname=brother-brhl2035-lpr
+pkgver=2.0.1
+pkgrel=1
+pkgdesc="Brother HL-2035 lpr drivers."
+arch=('i686' 'x86_64')
+url="http://support.brother.com/g/b/downloadlist.aspx?c=de&lang=de&prod=hl2030_all&os=127&flang=English"
+license=('GPL2' 'custom:brother')
+depends=('lib32-glibc')
+makedepends=('rpmextract')
+#optdepends=('brother-brhl2030-cups: cupswrapper.')
+#changelog="${pkgname}.changelog"
+source=("http://download.brother.com/welcome/dlf005835/brhl2030lpr-${pkgver/_/-}-1.i386.rpm")
+noextract=("brhl2035lpr-${pkgver/_/-}-1.i386.rpm")
+md5sums=('29d20e3925e29779260dbbcd0d1fc29e')
+
+prepare() {
+  rpmextract.sh brhl2030lpr-${pkgver/_/-}-1.i386.rpm
+}
+
+package() {
+  mkdir -p ${pkgdir}/opt/brother/Printers/brhl2035
+  cp -r ${srcdir}/usr/local/Brother/* ${pkgdir}/opt/brother/Printers/brhl2035
+}
