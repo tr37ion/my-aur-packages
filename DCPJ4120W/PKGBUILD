@@ -1,0 +1,25 @@
+# UNOFFICIAL PKGBUILD
+# Installing Brother DCP-J4120DW driver for LPRng
+
+pkgname=brother-dcpj4120dw-lpr
+pkgver=3.0.1
+pkgrel=1
+pkgdesc="Brother DCP-J4120DW lpr drivers."
+arch=('i686' 'x86_64')
+url="http://support.brother.com/g/b/producttop.aspx?c=de&lang=de&prod=dcpj4120dw_eu_as"
+license=('GPL2' 'custom:brother')
+depends=('lib32-glibc')
+makedepends=('rpmextract')
+#optdepends=('brother-dcp7070dw-cups: cupswrapper.')
+#changelog="${pkgname}.changelog"
+source=("http://download.brother.com/welcome/dlf101557/dcpj4120dwlpr-${pkgver/_/-}-1.i386.rpm")
+noextract=("dcp4120dwlpr-${pkgver/_/-}-1.i386.rpm")
+md5sums=('e7c8ccb58d0f09ee35978d5079452e07')
+
+prepare() {
+  rpmextract.sh dcpj4120dwlpr-${pkgver/_/-}-1.i386.rpm
+}
+
+package() {
+  cp -r ${srcdir}/opt ${pkgdir}/
+}
