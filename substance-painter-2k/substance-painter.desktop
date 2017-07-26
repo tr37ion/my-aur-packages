@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=2017.1.0
+Name=Substance Painter
+Description=Substance Painter is a 3D painting software allowing you to texture, render and share your work.
+Exec="/opt/Allegorithmic/Substance_Painter/Substance Painter"
+Icon=substance-painter-icon
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Graphics;Application;Utility;
