@@ -20,12 +20,12 @@ sha256sums=('90ed4e491e3fa18f14e112b3a7bfb2d46ecd59833bc2de824b2dcd085946bb75'
 validpgpkeys=()
 
 package() {
-  mkdir -p ${pkgdir}/opt/Allegorithmic
-  mv ${srcdir}/opt/Allegorithmic/Substance_Player ${pkgdir}/opt/Allegorithmic
+  mkdir -p "${pkgdir}/opt/Allegorithmic"
+  mv "${srcdir}/opt/Allegorithmic/Substance_Player" "${pkgdir}/opt/Allegorithmic"
 
   install -Dm644 "${pkgdir}/opt/Allegorithmic/Substance_Player/eula.txt" \
                  "${pkgdir}/usr/share/licenses/${_pkgname}/eula.txt"
-  rm ${pkgdir}/opt/Allegorithmic/Substance_Player/eula.txt
+  rm "${pkgdir}/opt/Allegorithmic/Substance_Player/eula.txt"
 
   install -Dm644 -t "${pkgdir}/usr/share/applications" \
                     "${srcdir}/substance-player.desktop"

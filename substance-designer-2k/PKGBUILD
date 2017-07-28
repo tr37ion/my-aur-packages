@@ -21,12 +21,12 @@ sha256sums=('6874dc9505de3305dbd47d5f1829f8ea56dbec4532cfb6e1be6b4972004b0699'
 validpgpkeys=()
 
 package() {
-  mkdir -p ${pkgdir}/opt/Allegorithmic
-  mv ${srcdir}/opt/Allegorithmic/Substance_Designer ${pkgdir}/opt/Allegorithmic
+  mkdir -p "${pkgdir}/opt/Allegorithmic"
+  mv "${srcdir}/opt/Allegorithmic/Substance_Designer" "${pkgdir}/opt/Allegorithmic"
 
   install -Dm644 -t "${pkgdir}/opt/Allegorithmic/Substance_Designer/eula.txt" \
                     "${pkgdir}/usr/share/licenses/${_pkgname}/eula.txt"
-  rm ${pkgdir}/opt/Allegorithmic/Substance_Designer/eula.txt
+  rm "${pkgdir}/opt/Allegorithmic/Substance_Designer/eula.txt"
 
   install -Dm644 -t "${pkgdir}/usr/share/applications" \
                     "${srcdir}/substance-designer.desktop"

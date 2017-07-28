@@ -20,12 +20,12 @@ sha256sums=('22f2588601ca36a43719a80b2ed3648b87fde453ee3c7c723ba22f939e58bc57'
 validpgpkeys=()
 
 package() {
-  mkdir -p ${pkgdir}/opt/Allegorithmic
-  mv ${srcdir}/opt/Allegorithmic/Substance_Painter ${pkgdir}/opt/Allegorithmic
+  mkdir -p "${pkgdir}/opt/Allegorithmic"
+  mv "${srcdir}/opt/Allegorithmic/Substance_Painter" "${pkgdir}/opt/Allegorithmic"
 
   install -Dm644 "${pkgdir}/opt/Allegorithmic/Substance_Painter/eula.txt" \
                  "${pkgdir}/usr/share/licenses/${_pkgname}/eula.txt"
-  rm ${pkgdir}/opt/Allegorithmic/Substance_Painter/eula.txt
+  rm "${pkgdir}/opt/Allegorithmic/Substance_Painter/eula.txt"
 
   install -Dm644 -t "${pkgdir}/usr/share/applications" \
                     "${srcdir}/substance-painter.desktop"
