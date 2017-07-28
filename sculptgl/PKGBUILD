@@ -1,0 +1,49 @@
+pkgname=sculptgl
+_pkgname=sculptgl
+pkgver=2016
+pkgrel=1
+_pkgver=1
+pkgdesc="SculptGL - WebGL sculpting (Electron App)"
+arch=('i686' 'x86_64')
+case $CARCH in
+  'i686') _arch='ia32';;
+  'x86_64') _arch='x64';;
+esac
+url='https://github.com/stephomi/sculptgl'
+license=('custom')
+depends=('electron')
+makedepend=('unzip')
+conflicts=('sculptgl')
+options=('!strip')
+noextract=("SculptGL-linux-${_arch}.zip")
+source=("https://stephaneginier.com/archive/standalone/SculptGL-linux-${_arch}.zip"
+ "sculptgl.desktop"
+ "sculptgl-icon.png")
+noextract=()
+sha256sums=('f5fbb99b35e30fea347664fa60f10a7d87b78ab1f02fce77f9ac68ce37a95913'
+ "07754e27999cfadda405912c92492347e671f856d39afe851eb794c4aa244083"
+ "5fd330f7debf163d7fbf29e6595b92c433b592d002b26cc9ff2ab9cfe7336a84")
+validpgpkeys=()
+
+package() {
+  mkdir -p "${pkgdir}/opt/${_pkgname}"
+  cd "${srcdir}/SculptGL-linux-${_arch}"
+  chmod 755 "SculptGL"
+  
+  cp -R * "${pkgdir}/opt/${_pkgname}"
+
+  install -Dm644 "${pkgdir}/opt/${_pkgname}/LICENSE" \
+                 "${pkgdir}/usr/share/licenses/${_pkgname}/LICENSE"
+  install -Dm644 "${pkgdir}/opt/${_pkgname}/LICENSES.chromium.html" \
+                 "${pkgdir}/usr/share/licenses/${_pkgname}/LICENSES.chromium.html"
+
+  install -Dm644 -t "${pkgdir}/usr/share/applications" \
+                    "${srcdir}/sculptgl.desktop"
+  install -Dm644 -t "${pkgdir}/usr/share/icons/hicolor/256x256/apps" \
+                    "${srcdir}/sculptgl-icon.png"
+
+  # Symlink main binary
+  install -d "${pkgdir}/usr/bin"
+  ln -s "/opt/${_pkgname}/SculptGL" "${pkgdir}/usr/bin/${_pkgname}"
+}
+

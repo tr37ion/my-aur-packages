@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=2016
+Name=SculptGL
+Description=SculptGL - WebGL sculpting using Electron UI
+Exec="/opt/sculptgl/SculptGL"
+Icon=sculptgl-icon
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Graphics;Application;
