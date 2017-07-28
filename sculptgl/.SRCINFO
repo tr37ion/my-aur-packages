@@ -3,14 +3,16 @@ pkgbase = sculptgl-git
 	pkgver = 1
 	pkgrel = 1
 	url = https://github.com/stephomi/sculptgl
-	arch = x86_64
-	:arch = x64
+	arch = x86_64 x86_64
 	license = MIT
 	depends = electron
 	conflicts = sculptgl-git
 	options = !strip
   source = https://stephaneginier.com/archive/standalone/SculptGL-linux-x64.zip
+  source = sculptgl.desktop
+  source = sculptgl-icon.png
 	sha256sums = 90ed4e491e3fa18f14e112b3a7bfb2d46ecd59833bc2de824b2dcd085946bb75
-
+  sha256sums = 07754e27999cfadda405912c92492347e671f856d39afe851eb794c4aa244083
+  sha256sums = 5fd330f7debf163d7fbf29e6595b92c433b592d002b26cc9ff2ab9cfe7336a84
 pkgname = sculptgl
 
