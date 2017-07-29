@@ -1,4 +1,4 @@
-pkgname=substance-designer-2k
+pkgname=substance-designer-2017
 _pkgname=substance-designer
 pkgver=2017.1.1
 _pkgver=354
@@ -8,7 +8,6 @@ arch=('x86_64')
 url='https://www.allegorithmic.com/products/substance-designer'
 license=('custom')
 depends=('fontconfig' 'gcc-libs-multilib' 'glu' 'hicolor-icon-theme' 'libtiff4')
-conflicts=('substance-designer' 'substance-designer-6')
 options=('!strip')
 source=( "https://alg-releases.s3.amazonaws.com/public_releases/${_pkgname}/2017.x/Substance_Designer-${pkgver}-354-linux-x64-standard-full.rpm"
  'substance-designer-icon.png'
@@ -24,9 +23,9 @@ package() {
   mkdir -p "${pkgdir}/opt/Allegorithmic"
   mv "${srcdir}/opt/Allegorithmic/Substance_Designer" "${pkgdir}/opt/Allegorithmic"
 
-  install -Dm644 -t "${pkgdir}/opt/Allegorithmic/Substance_Designer/eula.txt" \
+  install -Dm644 -t "${pkgdir}/opt/Allegorithmic/Substance_Designer_2017/eula.txt" \
                     "${pkgdir}/usr/share/licenses/${_pkgname}/eula.txt"
-  rm "${pkgdir}/opt/Allegorithmic/Substance_Designer/eula.txt"
+  rm "${pkgdir}/opt/Allegorithmic/Substance_Designer_2017/eula.txt"
 
   install -Dm644 -t "${pkgdir}/usr/share/applications" \
                     "${srcdir}/substance-designer.desktop"

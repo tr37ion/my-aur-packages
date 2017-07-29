@@ -1,4 +1,4 @@
-pkgname=substance-painter-2k
+pkgname=substance-painter-2017
 _pkgname=substance-painter
 pkgver=2017.1.0
 pkgrel=1
@@ -8,7 +8,6 @@ arch=('x86_64')
 url='Substance Painter is a 3D painting software allowing you to texture, render and share your work.'
 license=('custom')
 depends=('fontconfig' 'gcc-libs-multilib' 'glu' 'hicolor-icon-theme' 'libtiff4')
-conflicts=('substance-painter')
 options=('!strip')
 source=( "https://alg-releases.s3.amazonaws.com/public_releases/${_pkgname}/${_pkgver}/Substance_Painter-${pkgver}-1.el6.standard.full.x86_64.rpm"
 'substance-painter-icon.png'
@@ -21,15 +20,14 @@ validpgpkeys=()
 
 package() {
   mkdir -p "${pkgdir}/opt/Allegorithmic"
-  mv "${srcdir}/opt/Allegorithmic/Substance_Painter" "${pkgdir}/opt/Allegorithmic"
+  mv "${srcdir}/opt/Allegorithmic/Substance_Painter_2017" "${pkgdir}/opt/Allegorithmic"
 
-  install -Dm644 "${pkgdir}/opt/Allegorithmic/Substance_Painter/eula.txt" \
+  install -Dm644 "${pkgdir}/opt/Allegorithmic/Substance_Painter_2017/eula.txt" \
                  "${pkgdir}/usr/share/licenses/${_pkgname}/eula.txt"
-  rm "${pkgdir}/opt/Allegorithmic/Substance_Painter/eula.txt"
+  rm "${pkgdir}/opt/Allegorithmic/Substance_Painter_2017/eula.txt"
 
   install -Dm644 -t "${pkgdir}/usr/share/applications" \
                     "${srcdir}/substance-painter.desktop"
   install -Dm644 -t "${pkgdir}/usr/share/icons/hicolor/256x256/apps" \
                     "${srcdir}/substance-painter-icon.png"
 }
-

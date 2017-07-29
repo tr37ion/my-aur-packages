@@ -1,8 +1,8 @@
-pkgbase = substance-player-2k
-	pkgdesc = Visualize and tweak Substance textures
+pkgbase = substance-player-2017
+	pkgdesc = Node-based, non-destructive PBR material player
 	pkgver = 2017.1.0
 	pkgrel = 1
-	url = https://www.allegorithmic.com/products/substance-player
+	url = https://www.allegorithmic.com/
 	arch = x86_64
 	license = custom
 	depends = fontconfig
@@ -10,15 +10,13 @@ pkgbase = substance-player-2k
 	depends = glu
 	depends = hicolor-icon-theme
 	depends = libtiff4
-	conflicts = substance-player
-	conflicts = substance-player-6
 	options = !strip
 	source = https://alg-releases.s3.amazonaws.com/public_releases/substance-player/2017.x/Substance_Player-2017.1.0-305-linux-x64-standard-full.rpm
 	source = substance-player-icon.png
 	source = substance-player.desktop
 	sha256sums = 90ed4e491e3fa18f14e112b3a7bfb2d46ecd59833bc2de824b2dcd085946bb75
-	sha256sums = 
-	sha256sums = 
+	sha256sums = 87d2e879c24a26e63334614b9f1c5d24bfb2eb2b606762b63ce5a2fe6a54345e
+	sha256sums = 408c668190f61616d94fff6cc41332bcfc9ef83b31652d4c588ed89e3526178a
 
-pkgname = substance-player-2k
+pkgname = substance-player-2017
 

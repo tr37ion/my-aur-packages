@@ -1,4 +1,4 @@
-pkgname=substance-player-2k
+pkgname=substance-player-2017
 _pkgname=substance-player
 pkgver=2017.1.0
 pkgrel=1
@@ -8,7 +8,6 @@ arch=('x86_64')
 url='https://www.allegorithmic.com/'
 license=('custom')
 depends=('fontconfig' 'gcc-libs-multilib' 'glu' 'hicolor-icon-theme' 'libtiff4')
-conflicts=('substance-player')
 options=('!strip')
 source=( "https://alg-releases.s3.amazonaws.com/public_releases/${_pkgname}/2017.x/Substance_Player-${pkgver}-305-linux-x64-standard-full.rpm"
 'substance-player-icon.png'
@@ -21,11 +20,11 @@ validpgpkeys=()
 
 package() {
   mkdir -p "${pkgdir}/opt/Allegorithmic"
-  mv "${srcdir}/opt/Allegorithmic/Substance_Player" "${pkgdir}/opt/Allegorithmic"
+  mv "${srcdir}/opt/Allegorithmic/Substance_Player_2017" "${pkgdir}/opt/Allegorithmic"
 
-  install -Dm644 "${pkgdir}/opt/Allegorithmic/Substance_Player/eula.txt" \
+  install -Dm644 "${pkgdir}/opt/Allegorithmic/Substance_Player_2017/eula.txt" \
                  "${pkgdir}/usr/share/licenses/${_pkgname}/eula.txt"
-  rm "${pkgdir}/opt/Allegorithmic/Substance_Player/eula.txt"
+  rm "${pkgdir}/opt/Allegorithmic/Substance_Player_2017/eula.txt"
 
   install -Dm644 -t "${pkgdir}/usr/share/applications" \
                     "${srcdir}/substance-player.desktop"
