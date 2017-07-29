@@ -1,6 +1,6 @@
 pkgbase = substance-painter-2017
 	pkgdesc = Node-based, non-destructive PBR material painter
-	pkgver = 2017.1.0
+	pkgver = 2017.2.0
 	pkgrel = 1
 	url = Substance Painter is a 3D painting software allowing you to texture, render and share your work.
 	arch = x86_64
@@ -11,12 +11,12 @@ pkgbase = substance-painter-2017
 	depends = hicolor-icon-theme
 	depends = libtiff4
 	options = !strip
-	source = https://alg-releases.s3.amazonaws.com/public_releases/substance-painter/2017.x/Substance_Painter-2017.1.0-1.el6.standard.full.x86_64.rpm
-	source = substance-painter-icon.png
-	source = substance-painter.desktop
-	sha256sums = 22f2588601ca36a43719a80b2ed3648b87fde453ee3c7c723ba22f939e58bc57
+	source = https://alg-releases.s3.amazonaws.com/public_releases/substance-painter/2017/Substance_Painter-2017.2.0-1.el6.standard.full.x86_64.rpm
+	source = substance-painter-icon-2017.png
+	source = substance-painter-2017.desktop
+	sha256sums = 940d4c3ed7458d9c6126302a8de00f28870e9b7767f898b3b99d55633d515d12
 	sha256sums = a9cd853a4aab77f3974fd3d867b8a63bc8f755d61642ff9047e45eeaf2500094
-	sha256sums = 29abe8ec6711e2ed7be9cf51683fba0bf354ddc630c43d3c45cbaacce3a625ec
+	sha256sums = bd1c4ad7e3b1963c0216749c825c6a289d5957159cf4b295b9886bf7c68ba7d6
 
 pkgname = substance-painter-2017
 

@@ -1,8 +1,8 @@
 pkgname=substance-painter-2017
 _pkgname=substance-painter
-pkgver=2017.1.0
+pkgver=2017.2.0
+_pkgver=2017
 pkgrel=1
-_pkgver=2017.x
 pkgdesc="Node-based, non-destructive PBR material painter"
 arch=('x86_64')
 url='Substance Painter is a 3D painting software allowing you to texture, render and share your work.'
@@ -10,24 +10,25 @@ license=('custom')
 depends=('fontconfig' 'gcc-libs-multilib' 'glu' 'hicolor-icon-theme' 'libtiff4')
 options=('!strip')
 source=( "https://alg-releases.s3.amazonaws.com/public_releases/${_pkgname}/${_pkgver}/Substance_Painter-${pkgver}-1.el6.standard.full.x86_64.rpm"
-'substance-painter-icon.png'
-'substance-painter.desktop')
+ "substance-painter-icon-${_pkgver}.png"
+ "substance-painter-${_pkgver}.desktop")
 noextract=()
-sha256sums=('22f2588601ca36a43719a80b2ed3648b87fde453ee3c7c723ba22f939e58bc57'
+sha256sums=('940d4c3ed7458d9c6126302a8de00f28870e9b7767f898b3b99d55633d515d12'
             'a9cd853a4aab77f3974fd3d867b8a63bc8f755d61642ff9047e45eeaf2500094'
-            '29abe8ec6711e2ed7be9cf51683fba0bf354ddc630c43d3c45cbaacce3a625ec')
+            'bd1c4ad7e3b1963c0216749c825c6a289d5957159cf4b295b9886bf7c68ba7d6')
 validpgpkeys=()
 
 package() {
   mkdir -p "${pkgdir}/opt/Allegorithmic"
-  mv "${srcdir}/opt/Allegorithmic/Substance_Painter_2017" "${pkgdir}/opt/Allegorithmic"
+  mv "${srcdir}/opt/Allegorithmic/Substance_Painter" "${pkgdir}/opt/Allegorithmic"
+  mv "${pkgdir}/opt/Allegorithmic/Substance_Painter" "${pkgdir}/opt/Allegorithmic/Substance_Painter_${_pkgver}"
 
-  install -Dm644 "${pkgdir}/opt/Allegorithmic/Substance_Painter_2017/eula.txt" \
-                 "${pkgdir}/usr/share/licenses/${_pkgname}/eula.txt"
-  rm "${pkgdir}/opt/Allegorithmic/Substance_Painter_2017/eula.txt"
+  install -Dm644 "${pkgdir}/opt/Allegorithmic/Substance_Painter_${_pkgver}/eula.txt" \
+                 "${pkgdir}/usr/share/licenses/${_pkgname}_${_pkgver}/eula.txt"
+  rm "${pkgdir}/opt/Allegorithmic/Substance_Painter_${_pkgver}/eula.txt"
 
   install -Dm644 -t "${pkgdir}/usr/share/applications" \
-                    "${srcdir}/substance-painter.desktop"
+                    "${srcdir}/substance-painter-${_pkgver}.desktop"
   install -Dm644 -t "${pkgdir}/usr/share/icons/hicolor/256x256/apps" \
-                    "${srcdir}/substance-painter-icon.png"
+                    "${srcdir}/substance-painter-icon-${_pkgver}.png"
 }
