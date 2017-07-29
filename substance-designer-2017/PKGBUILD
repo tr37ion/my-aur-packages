@@ -1,7 +1,7 @@
 pkgname=substance-designer-2017
 _pkgname=substance-designer
 pkgver=2017.1.1
-_pkgver=354
+_pkgver=2017
 pkgrel=1
 pkgdesc="Node-based, non-destructive PBR material authoring tool"
 arch=('x86_64')
@@ -10,25 +10,26 @@ license=('custom')
 depends=('fontconfig' 'gcc-libs-multilib' 'glu' 'hicolor-icon-theme' 'libtiff4')
 options=('!strip')
 source=( "https://alg-releases.s3.amazonaws.com/public_releases/${_pkgname}/2017.x/Substance_Designer-${pkgver}-354-linux-x64-standard-full.rpm"
- 'substance-designer-icon.png'
- 'substance-designer.desktop'
- 'substance-designer')
+ "substance-designer-icon-${_pkgver}.png"
+ "substance-designer-${_pkgver}.desktop"
+)
 noextract=()
 sha256sums=('6874dc9505de3305dbd47d5f1829f8ea56dbec4532cfb6e1be6b4972004b0699'
             '8f7f090d96dbb3535747d2c09c32970343c8887df610bc7ef92b59871a9bfb35'
-            '8a39ceb81845f4ecb1049de87f3f3224299d5cfcdeb5119a3af3f0f5b14cffe0')
+            '0b492813f7a03fd6df8bf7c72913eb911c28fb88a92efe83e355a08481451bad')
 validpgpkeys=()
 
 package() {
   mkdir -p "${pkgdir}/opt/Allegorithmic"
   mv "${srcdir}/opt/Allegorithmic/Substance_Designer" "${pkgdir}/opt/Allegorithmic"
+  mv "${pkgdir}/opt/Allegorithmic/Substance_Designer" "${pkgdir}/opt/Allegorithmic/Substance_Designer_${_pkgver}"
 
-  install -Dm644 -t "${pkgdir}/opt/Allegorithmic/Substance_Designer_2017/eula.txt" \
-                    "${pkgdir}/usr/share/licenses/${_pkgname}/eula.txt"
-  rm "${pkgdir}/opt/Allegorithmic/Substance_Designer_2017/eula.txt"
+  install -Dm644 "${pkgdir}/opt/Allegorithmic/Substance_Designer_${_pkgver}/eula.txt" \
+                 "${pkgdir}/usr/share/licenses/${_pkgname}_${_pkgver}/eula.txt"
+  rm "${pkgdir}/opt/Allegorithmic/Substance_Designer_${_pkgver}/eula.txt"
 
   install -Dm644 -t "${pkgdir}/usr/share/applications" \
-                    "${srcdir}/substance-designer.desktop"
+                    "${srcdir}/substance-designer-${_pkgver}.desktop"
   install -Dm644 -t "${pkgdir}/usr/share/icons/hicolor/256x256/apps" \
-                    "${srcdir}/substance-designer-icon.png"
+                    "${srcdir}/substance-designer-icon-${_pkgver}.png"
 }
