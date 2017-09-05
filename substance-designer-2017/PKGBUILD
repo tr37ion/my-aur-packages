@@ -1,8 +1,8 @@
 pkgname=substance-designer-2017
 _pkgname=substance-designer
-pkgver=2017.1.2
+pkgver=2017.1.3
 _pkgver=2017
-_build=403
+_build=474
 pkgrel=1
 pkgdesc="Node-based, non-destructive PBR material authoring tool"
 arch=('x86_64')
@@ -16,7 +16,7 @@ source=( "https://alg-releases.s3.amazonaws.com/public_releases/${_pkgname}/2017
 )
 
 noextract=()
-sha256sums=('f7a527e12c5f59c66d90b3135568175cc0d0f6e0b739377a97b23a07ffd4490a'
+sha256sums=('f9af0e99d51a7013923baf1cc0fbe5e511746c1f685ee922bd7636e3bce5fbae'
             '8f7f090d96dbb3535747d2c09c32970343c8887df610bc7ef92b59871a9bfb35'
             '0b492813f7a03fd6df8bf7c72913eb911c28fb88a92efe83e355a08481451bad')
 validpgpkeys=()
